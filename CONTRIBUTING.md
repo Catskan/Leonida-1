@@ -22,6 +22,9 @@ reports, include the exact commit, operating system, GPU, driver, and synthetic 
 game information removed. A successful API call, valid SPIR-V, and bit-exact output are different results.
 Separate new measurements from historical reports. See [GOVERNANCE.md](GOVERNANCE.md) for review and merge
 policy, and [SECURITY.md](SECURITY.md) for private reporting instructions.
+Please follow the [code of conduct](CODE_OF_CONDUCT.md). Contributions do not require joining the organization;
+start with a fork and a pull request. See the [contributor access policy](GOVERNANCE.md#contributor-access) for
+the responsibilities of each team.
 
 Only contribute material you are authorized to redistribute. Preserve authorship, copyright and license notices;
 for new third-party material document its source, version and applicable terms in the PR.
