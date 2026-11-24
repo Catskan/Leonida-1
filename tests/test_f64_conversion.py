@@ -35,8 +35,8 @@ def f32_word(x):
     return struct.unpack("<I", struct.pack("<f", x))[0]
 
 
-def expected(scale, clamp):
-    x = struct.unpack("<f", struct.pack("<f", INPUT))[0] * scale
+def expected(scale, clamp, value=INPUT):
+    x = struct.unpack("<f", struct.pack("<f", value))[0] * scale
     return f32_word(min(max(x, 0.0), 1.0) if clamp else x)
 
 
@@ -61,6 +61,16 @@ class F64ConversionTest(unittest.TestCase):
                         self.assertNotRegex(spv, r"OpFMul %float")
                     if not clamp:
                         self.assertNotIn("FClamp", spv)
+
+    def test_negative_input(self):
+        """-1.5: clamp must give +0.0 (its lower bound is 0); the fixture's 1.5 only reaches the upper bound."""
+        text = fixture_body().replace("v_mov_b32 v1, 0x3ff80000", "v_mov_b32 v1, 0xbff80000")
+        self.assertNotEqual(text, fixture_body())
+        with tempfile.TemporaryDirectory() as directory:
+            for modifiers, scale, clamp in MODIFIERS:
+                with self.subTest(modifiers=modifiers):
+                    _spv, got = run_conversion(directory, f"{text} {modifiers}".rstrip())
+                    self.assertEqual(got, expected(scale, clamp, -1.5), f"{got:#010x}")
 
     def test_lane_with_exec_off_keeps_the_destination(self):
         cvt = "v_cvt_f32_f64_e64 v3, v[0:1]"

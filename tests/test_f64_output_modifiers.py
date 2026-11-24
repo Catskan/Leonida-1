@@ -28,8 +28,9 @@ MODIFIERS = (
     ("clamp div:2", 0.5, True),
     ("mul:4 clamp", 4.0, True),
 )
-# (a, b): the GPU test's 0.75 + 0.5, whose low words are zero, and a pair whose sum has a non-zero low word.
-INPUTS = ((0.75, 0.5), (1 / 3, 0.25))
+# (a, b): the GPU test's 0.75 + 0.5, whose low words are zero, a pair whose sum has a non-zero low word, and a
+# negative sum, so that clamp's lower bound (0, not a negative number) decides the result.
+INPUTS = ((0.75, 0.5), (1 / 3, 0.25), (-0.75, 0.25))
 OLD = (0x11111111, 0x22222222)  # v[4:5] before the add, kept by a lane with EXEC off
 
 
