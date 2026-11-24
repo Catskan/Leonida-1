@@ -2,13 +2,12 @@
 
 The GPU tests are small hand-written RDNA2 programs in `runtime/test/shaders`. They are translated to SPIR-V and run
 on your GPU, and the results are compared with what the RDNA2 hardware gives. They need no game files, and every
-result helps: post it in [#166](https://github.com/ItsNotRexed/Leonida/issues/166), one comment per GPU and driver.
-If your GPU is already covered there, testing an open pull request from the review queue in the [coordination
-issue][claims] helps more.
+result helps. Post a new measurement on the relevant [issue](https://github.com/LeonidaReforge/Leonida/issues)
+or [pull request](https://github.com/LeonidaReforge/Leonida/pulls) with the exact commit, OS, GPU, driver, commands
+and sanitized results. The original project's [issue #166](https://github.com/ItsNotRexed/Leonida/issues/166)
+is retained as a historical citation, not as a place to report current results.
 
 This page collects the setup steps and the problems testers have run into so far.
-
-[claims]: https://github.com/ItsNotRexed/Leonida/issues?q=is%3Aissue%20is%3Aopen%20in%3Atitle%20%22Coordinating%20who%20works%20on%20what%22
 
 ## What you need
 
@@ -285,7 +284,7 @@ synthetic test shaders, CTest inventory and the path of the Windows checkout. Fr
 used by the Windows job, set `run_id` to the Actions run ID and download the artifact to `runtime/build`:
 
 ```sh
-gh run download "$run_id" --repo ItsNotRexed/Leonida --name runtime-windows --dir runtime/build
+gh run download "$run_id" --repo LeonidaReforge/Leonida --name runtime-windows --dir runtime/build
 
 WINE=wine WINEPREFIX="$(mktemp -d)" WINEDLLOVERRIDES="mscoree,mshtml=" WINEDEBUG=-all \
   bash scripts/run_wine_session.sh python3 -I scripts/run_wine_tests.py \

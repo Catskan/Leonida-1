@@ -59,7 +59,7 @@ faltam. Uma pasta `disasm` que seja uma ligação simbólica é recusada quando 
 1. Instale os pré-requisitos acima.
 2. Clone o repositório **com o submódulo**:
    ```powershell
-   git clone --recursive https://github.com/ItsNotRexed/Leonida
+   git clone --recursive https://github.com/LeonidaReforge/Leonida.git
    ```
    Um *Download ZIP* do GitHub não inclui `third_party/rpf9-explorer`.
 3. Abra a pasta `Leonida` e faça duplo clique em **`Build.bat`**.
@@ -169,15 +169,4 @@ está em [`docs/d3d12_vulkan.md`](../../d3d12_vulkan.md), os formatos de áudio 
 
 ## Como contribuir e executar testes GPU
 
-1. Consulte os PRs abertos e a [issue de coordenação][coord] para evitar trabalho duplicado. Reserve a tarefa
-   com `claiming: <ID>` (ou com uma descrição de uma linha, se ainda não houver ID).
-2. Execute os testes relevantes com entradas sintéticas. Por exemplo, na raiz do repositório:
-   `python -I tests/test_manifest_verifier.py`.
-3. No PR, indique o ID da tarefa, o que testou e a GPU/controlador se executou testes GPU. Siga as regras em
-   [`CONTRIBUTING.md`](../../../CONTRIBUTING.md) e indique o uso de IA conforme
-   [`AGENTS.md`](../../../AGENTS.md).
-
-O [guia de testes GPU](../../testing.md) explica como executar os testes sem ficheiros do jogo. Publique os
-resultados na [issue #166](https://github.com/ItsNotRexed/Leonida/issues/166).
-
-[coord]: https://github.com/ItsNotRexed/Leonida/issues?q=is%3Aissue%20is%3Aopen%20in%3Atitle%20%22Coordinating%20who%20works%20on%20what%22
+See the current [contribution guide](../../../CONTRIBUTING.md) and [GPU testing guide](../../testing.md).

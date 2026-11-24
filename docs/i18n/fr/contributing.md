@@ -17,22 +17,8 @@ Merci de votre aide. Quelques règles permettent au projet de rester hébergeabl
 
 ## Avant de commencer
 
-Réservez la tâche dans [l'issue de coordination][claims] : l'issue ouverte intitulée « Coordinating who works on
-what ». Quand le fil devient trop long, elle est remplacée par une nouvelle issue, c'est pourquoi le lien lance une
-recherche. Consultez ses tableaux et les pull requests ouvertes, publiez `claiming: <ID>` dans l'issue (ou une
-description d'une ligne pour une tâche qui n'y figure pas encore), puis indiquez l'identifiant dans votre pull
-request.
-
-Vous avez repéré quelque chose à faire mais vous ne comptez pas vous en charger ? Publiez `finding: <one line>` dans
-l'issue, en précisant où se trouve le problème et pourquoi il compte. La tâche rejoint alors la liste pour quelqu'un
-d'autre. Si deux pull requests se recoupent malgré tout, celle qui arrive en premier est fusionnée et l'autre doit
-être rebasée ou fermée.
-
-Les résultats des tests GPU vont dans l'[issue #166](https://github.com/ItsNotRexed/Leonida/issues/166). Le travail
-sur la couche D3D12 → Vulkan a sa propre page, l'[issue #313](https://github.com/ItsNotRexed/Leonida/issues/313) :
-on y trouve le chemin critique, qui construit quoi, et les méthodes D3D12 qui restent à faire.
-
-[claims]: https://github.com/ItsNotRexed/Leonida/issues?q=is%3Aissue%20is%3Aopen%20in%3Atitle%20%22Coordinating%20who%20works%20on%20what%22
+The current [contribution guide](../../../CONTRIBUTING.md#before-you-start) explains coordination, review, and
+reporting on LeonidaReforge. See also the [GPU testing guide](../../testing.md).
 
 ## Travailler sur le code
 
