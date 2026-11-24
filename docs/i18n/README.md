@@ -3,6 +3,11 @@
 The English documentation ([`README.md`](../../README.md), [`CONTRIBUTING.md`](../../CONTRIBUTING.md), and
 [`docs/`](../README.md)) is **authoritative**.
 
+This repository is now maintained independently by LeonidaReforge. See the
+[project notice](../../README.md#independent-continuation) and [governance](../../GOVERNANCE.md).
+The credits below identify translation contributors, not repository administrators. Technical results in the
+quickstarts describe the original project unless explicitly marked as a new measurement.
+
 Community translations live here and cover **stable onboarding text only** (what the project is, own-copy and
 no-game-data rules, prerequisites, build commands, stage order, and common troubleshooting). They intentionally
 omit the daily-moving project status table, format notes, and `docs/design.md` so copies do not drift out of
@@ -10,7 +15,7 @@ date, and they require no build or CI changes.
 
 A language is added when a contributor volunteers to maintain it and keeps the synced commit below up to date.
 
-| Language | File | Synced commit | Maintainer |
+| Language | File | Synced commit | Translation credits |
 |---|---|---|---|
 | Français (`fr`) | [`fr/quickstart.md`](fr/quickstart.md) | `aa2988cc` | `@Urban225` |
 | Português (Brasil) (`pt-BR`) | [`pt-BR/quickstart.md`](pt-BR/quickstart.md) | `f847748c` | `@Andretuta` |

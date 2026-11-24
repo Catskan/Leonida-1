@@ -64,7 +64,7 @@ o estágio parecer concluído com zero shaders, e um link simbólico em `disasm`
 1. Instale os pré-requisitos acima.
 2. Clone o repositório **com o submódulo**:
    ```powershell
-   git clone --recursive https://github.com/ItsNotRexed/Leonida
+   git clone --recursive https://github.com/LeonidaReforge/Leonida.git
    ```
 3. Abra a pasta `Leonida` e dê duplo clique em **`Build.bat`**.
 
@@ -159,15 +159,4 @@ da instalação. No Windows, `--runtime-build` também permite reutilizar um bui
 
 ## Como contribuir e rodar os testes de GPU
 
-1. Consulte os PRs abertos e a [issue de coordenação][coord] para evitar trabalho duplicado. Reserve a
-   tarefa com `claiming: <ID>` ou com uma descrição de uma linha, se ainda não houver ID.
-2. Rode os testes relevantes com entradas sintéticas. Por exemplo, para testar o verificador de manifestos,
-   execute `python -I tests/test_manifest_verifier.py` na raiz do repositório.
-3. No PR, inclua o ID da tarefa, descreva o que testou e informe a GPU e o driver se rodou testes de GPU.
-   Confira as regras em [`CONTRIBUTING.md`](../../../CONTRIBUTING.md). Se usou assistência de IA, indique
-   isso no PR, conforme [`AGENTS.md`](../../../AGENTS.md).
-
-O [guia de testes em GPU](../../testing.md) mostra como executar os testes sem arquivos do jogo.
-Publique os resultados de GPU na [issue #166](https://github.com/ItsNotRexed/Leonida/issues/166).
-
-[coord]: https://github.com/ItsNotRexed/Leonida/issues?q=is%3Aissue%20is%3Aopen%20in%3Atitle%20%22Coordinating%20who%20works%20on%20what%22
+See the current [contribution guide](../../../CONTRIBUTING.md) and [GPU testing guide](../../testing.md).

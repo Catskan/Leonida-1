@@ -326,6 +326,14 @@ class Github(unittest.TestCase):
         self.assertEqual(pd.item_ids("hash with SHA-256, write UTF-8, read OPTIONS2-1 and D3D12-3"), [])
         self.assertEqual(pd.item_ids(None), [])
 
+    def test_default_repository_does_not_query_an_inherited_issue_number(self):
+        col = pd.Collector()
+        with mock.patch.object(pd, "gh_json", return_value=[]) as gh, \
+                mock.patch.object(pd.shutil, "which", return_value="/usr/bin/gh"):
+            pd.collect_github(col, pd.DEFAULT_REPO, None)
+        self.assertEqual(pd.DEFAULT_REPO, "LeonidaReforge/Leonida")
+        self.assertFalse(any(call.args[0][:2] == ["issue", "view"] for call in gh.call_args_list))
+
     def test_d3d_metric_counts_merged_pull_requests_not_only_table_rows(self):
         body = ("| ID | Title | Owner | PR | Status |\n|---|---|---|---|---|\n"
                 "| D3D-1 | a | @a | #50 | PR open |\n| D3D-2 | b | @b | #51 | PR open |\n")
@@ -338,11 +346,12 @@ class Github(unittest.TestCase):
             if args[:2] == ["pr", "list"]:
                 return merged if "merged" in args else open_prs
             if args[:2] == ["issue", "view"]:
+                self.assertEqual(args[2:5], ["27", "-R", "o/r"])
                 return {"body": body, "updatedAt": "2026-11-22T00:00:00Z"}
             return []
         col = pd.Collector()
         with mock.patch.object(pd, "gh_json", fake_gh), mock.patch.object(pd.shutil, "which", lambda _: "/usr/bin/gh"):
-            pd.collect_github(col, "o/r", "me")
+            pd.collect_github(col, "o/r", "me", 27)
         m = next(m for m in col.metrics if m["id"] == "d3d12.merged")
         self.assertEqual((m["numerator"], m["denominator"]), (3, 5))
 
@@ -356,7 +365,7 @@ class Github(unittest.TestCase):
             return []
         col = pd.Collector()
         with mock.patch.object(pd, "gh_json", fake_gh), mock.patch.object(pd.shutil, "which", lambda _: "/usr/bin/gh"):
-            pd.collect_github(col, "o/r", "me")
+            pd.collect_github(col, "o/r", "me", 27)
         return next(m for m in col.metrics if m["id"] == "d3d12.merged")
 
     @staticmethod
