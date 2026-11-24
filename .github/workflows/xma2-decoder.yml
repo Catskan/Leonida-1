@@ -2,7 +2,7 @@ name: XMA2 decoder
 
 on:
   push:
-    branches: [main]
+    branches: [main, integration/ci-recovery]
     paths:
       - "runtime/xma_decoder/**"
       - "third_party/xma/**"
