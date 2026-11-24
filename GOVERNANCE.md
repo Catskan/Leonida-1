@@ -46,3 +46,20 @@ These are recommendations, not a claim that protections, extra maintainers, or r
 
 For security incidents see [SECURITY.md](SECURITY.md); for licensing and rights reports see
 [Redistribution review](docs/redistribution-review.md).
+
+## Contributor access
+
+These are intended repository roles, not automatic promotions or organization ownership:
+
+| Role | Access | Intended work |
+|---|---|---|
+| External contributor | Forks and pull requests | Contribute changes and reproducible evidence. |
+| Contributors | Triage | Help categorize, deduplicate, and follow up on reports. |
+| Developers | Write | Collaborate on branches and review code; follow `main` protections. |
+| Maintainers | Maintain | Coordinate reviews and releases without full repository administration. |
+| Core Team | Admin | Maintain repository security and access policy; review sensitive changes. |
+
+An organization owner approves each access change based on a documented need and a track record of reviewed
+contributions. Grant only the lowest role needed, preserve separate organization ownership, and re-evaluate
+access when duties change. New or unknown contributors do not receive write access or administrative
+permissions automatically.
