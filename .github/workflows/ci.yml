@@ -196,9 +196,10 @@ jobs:
   # The Python suites on an Apple Silicon Mac: the standard-library loop of the check job, the translator semantic
   # tests and the pytest files of the translator-tests job, with Homebrew's llvm-mc and SPIRV-Tools. macos-26, not
   # macos-15: the Homebrew bottles cover Sequoia and later, but the runtime needs Xcode 26's libc++ (runtime.yml).
+  # During recovery, avoid exhausting hosted macOS runners; validate the exact recovery head by dispatch before merging #103.
   macos-python:
     needs: change-scope
-    if: ${{ !cancelled() && needs.change-scope.outputs.docs-only != 'true' }}
+    if: ${{ !cancelled() && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')) }}
     runs-on: macos-26
     timeout-minutes: 20
     env:
