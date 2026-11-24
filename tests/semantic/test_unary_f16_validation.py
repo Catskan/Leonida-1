@@ -45,7 +45,7 @@ def validate_spirv(spv_text):
     if not spirv_as or not spirv_val:
         # The interpreter checks in run_ps still run; test_spirv_tools_required.py makes a missing tool red where CI
         # promises it (LEONIDA_REQUIRE_SPIRV_TOOLS=1), so the macOS and Windows legs skip only the validation.
-        if os.environ.get("LEONIDA_REQUIRE_SPIRV_TOOLS"):
+        if os.environ.get("LEONIDA_REQUIRE_SPIRV_TOOLS") == "1":
             raise AssertionError("spirv-as / spirv-val required but not found on PATH")
         return
     with tempfile.TemporaryDirectory() as d:
