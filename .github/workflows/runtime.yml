@@ -11,7 +11,7 @@ on:
   # it. tests/test_runtime_paths.py recomputes the tools/ part and fails when an entry is missing; keep the two
   # lists identical.
   push:
-    branches: [main]
+    branches: [main, integration/ci-recovery]
     paths:
       - "runtime/**"
       - "third_party/**"
